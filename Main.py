@@ -53,7 +53,9 @@ def get_data_train(data_dir):
             try:
                 img_array = cv2.imread(os.path.join(path, img), cv2.IMREAD_GRAYSCALE)
                 new_array = cv2.resize(img_array, (IMG_SIZE, IMG_SIZE))
-                data.append([new_array, class_num])
+                data.append([new_array, class_num], dtype=object)                       # !!!!! EVEN with Manually added dtype=object to resolve ERROR VisibleDeprecationWarning: 
+                                                                                        # the behaviour seems to be off by a mile, list.append() takes no keyword arguments 
+                                                                                        # *shown on terminal for each image scanned, aka WRITES exception for each image
             except Exception as e:
                 print(e)
     return np.array(data)
@@ -72,4 +74,4 @@ for i in train:
     else:
        l.append("Pneumonia")
         
-sns.countplot(l)
+nsns.countplot(l)
