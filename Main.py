@@ -27,3 +27,49 @@ print(os.listdir("./img"))          # Folder with images must be in the same Dom
 #in [3]
 DIR = os.listdir('./img/chest_xray') 
 print(DIR)
+
+#in [4]
+#define the folder's content 
+train_folder = './img/chest_xray/train'
+test_folder = './img/chest_xray/test'
+val_folder = './img/chest_xray/val'
+
+#in [5]
+import matplotlib.pyplot as plt     # matplotlib, self explanatory
+import seaborn as sns               # seaborn, statiscical data visualization >>>  https://seaborn.pydata.org/ || pip install seaborn >> into CMD
+from PIL import Image
+import random
+
+#in [6]
+labels = ["NORMAL", "PNEUMONIA"]    # each folder has two sub folder name "PNEUMONIA", "NORMAL"
+IMG_SIZE = 50                       # resize image
+
+def get_data_train(data_dir): 
+    data = []
+    for label in labels:
+        path = os.path.join(data_dir, label)
+        class_num = labels.index(label)
+        for img in os.listdir(path):
+            try:
+                img_array = cv2.imread(os.path.join(path, img), cv2.IMREAD_GRAYSCALE)
+                new_array = cv2.resize(img_array, (IMG_SIZE, IMG_SIZE))
+                data.append([new_array, class_num])
+            except Exception as e:
+                print(e)
+    return np.array(data)
+
+#in [7] 
+# get Data to train
+train = get_data_train(train_folder)
+test = get_data_train(test_folder)
+val = get_data_train(val_folder)
+
+#in [8]
+l = []
+for i in train:
+    if(i[1] == 0):
+       l.append("Normal")
+    else:
+       l.append("Pneumonia")
+        
+sns.countplot(l)
