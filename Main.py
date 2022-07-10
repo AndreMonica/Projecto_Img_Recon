@@ -138,6 +138,10 @@ from tensorflow.keras.models import Sequential                                  
 # tentei para resolver os de cima a vermelho 
 # >>pip3 install ––upgrade setuptools
 # >>python -m pip install --upgrade pip
+# nao deu em nada
+# tensorflow 2.9.1
+# Keras 2.9.0
+
 
 
 #in [14]
