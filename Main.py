@@ -62,7 +62,7 @@ def get_data_train(data_dir):
                                                                                         # *shown on terminal for each image scanned, aka WRITES exception for each image
             except Exception as e:
                 print(e)
-    return np.array(data, dtype = object)                                               #the problem was over here, not upthere
+    return np.array(data, dtype = object)                                               # the problem was over here, not upthere
 
 #in [7] 
 # get Data to train
@@ -129,6 +129,7 @@ y_test = np.array(y_test)
 # Requires the latest pip >>> pip install --upgrade pip
 # Current stable release for CPU and GPU >>>  pip install tensorflow
 # Or try the preview build (unstable) >>> pip install tf-nightly
+# pip install tf-nightly-gpu
 # all into CMD
 
 import tensorflow as tf
