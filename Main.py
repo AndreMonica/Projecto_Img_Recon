@@ -132,8 +132,8 @@ y_test = np.array(y_test)
 # all into CMD
 
 import tensorflow as tf
-from tensorflow.keras.layers import Flatten, Conv2D, Activation, Dense, Dropout, MaxPooling2D   #issues with this RED!!!
-from tensorflow.keras.models import Sequential                                                  #issues with this RED!!!
+from tensorflow.python.keras.layers import Flatten, Conv2D, Activation, Dense, Dropout, MaxPooling2D   #tensorflow.python.keras.layers instead of tensorflow.keras.layers
+from tensorflow.python.keras.models import Sequential                                                  #same here, finnally fixed
 
 # tentei para resolver os de cima a vermelho 
 # >>pip3 install ––upgrade setuptools
@@ -207,7 +207,7 @@ plt.show()
 #in [17]
 # predict classes
 
-prediction = model.predict_classes(X_test)
+prediction = model.predict_classes(X_test)   # AttributeError: 'Sequential' object has no attribute 'predict_classes'
 prediction = prediction.reshape(1, -1)[0]
 prediction[:15]
 
