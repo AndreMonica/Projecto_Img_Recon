@@ -7,7 +7,7 @@
 #print('Ola ANA :D teste a ver se consegues ver isto')
 
 '''Temos de fazer import destas extensões: numpy (linear algebra), pandas (data processing) e cv2
-no terminal coloquei->   pip install pandas       e repeti com os outros
+no terminal coloquei->   pip install pandas       ->está a dar erro ao verificar o pip mas instalou as coisas
 '''
 
 #
@@ -78,4 +78,26 @@ for i in train:
     else:
        l.append("Pneumonia")
         
-nsns.countplot(l)
+sns.countplot(l)
+
+#in [9]
+X_train = []
+y_train = []
+
+X_val = []
+y_val = []
+
+X_test = []
+y_test = []
+
+for feature, label in train:
+    X_train.append(feature)
+    y_train.append(label)
+
+for feature, label in test:
+    X_test.append(feature)
+    y_test.append(label)
+
+for feature, label in val:
+    X_val.append(feature)
+    y_val.append(label)
