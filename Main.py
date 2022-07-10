@@ -78,7 +78,7 @@ for i in train:
     else:
        l.append("Pneumonia")
         
-sns.countplot(l)                        # Does not show the graph plot 
+sns.countplot(l)                        # shows graphplot
 
 #out [8]    <matplotlib.axes._subplots.AxesSubplot at 0x7fa43ba0f750>   !!! missing
 
