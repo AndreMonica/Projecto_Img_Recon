@@ -9,8 +9,7 @@
 '''Temos de fazer import destas extensões: numpy (linear algebra), pandas (data processing) e cv2
 no terminal coloquei->   pip install pandas       ->está a dar erro ao verificar o pip mas instalou as coisas
 '''
-#https://docs.conda.io/en/latest/miniconda.html >> GET THIS!
-#https://www.tensorflow.org/install/pip#windows
+
 #
 # Actual code, MOVE WITH CAUTION!
 #
