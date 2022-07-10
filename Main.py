@@ -132,8 +132,8 @@ y_test = np.array(y_test)
 # all into CMD
 
 import tensorflow as tf
-from tensorflow.keras.layers import Flatten, Conv2D, Activation, Dense, Dropout, MaxPooling2D
-from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Flatten, Conv2D, Activation, Dense, Dropout, MaxPooling2D   #issues with this RED!!!
+from tensorflow.keras.models import Sequential                                                  #issues with this RED!!!
 
 
 #in [14]
@@ -249,18 +249,18 @@ model = tf.keras.models.load_model("cnn.model") # load model
 
 #in [22] !!!!!!!!!!!!!!!!!!!!!! look into this
 # extra pneumonia photo from google
-prediction = model.predict([prepare("../input/images/left-lower-lobe-pneumonia.jpg")])
+prediction = model.predict([prepare("./img/protest/left-lower-lobe-pneumonia.jpg")])
 print(labels[int(prediction[0])])
 
 #in [23] !!!!!!!!!!!!!!!!!!!!!! look into this
 # extra normal x-ray photo from google
-prediction = model.predict([prepare("../input/images/normal.jpeg")])
+prediction = model.predict([prepare("./img/protest/normal.jpeg")])
 print(labels[int(prediction[0])])
 
 #in [24] !!!!!!!!!!!!!!!!!!!!!! look into this
-prediction = model.predict([prepare("../input/chest-xray-pneumonia/chest_xray/test/PNEUMONIA/person100_bacteria_475.jpeg")])
+prediction = model.predict([prepare("./img/chest_xray/test/PNEUMONIA/person100_bacteria_475.jpeg")])
 print(labels[int(prediction[0])])
 
 #in [25] !!!!!!!!!!!!!!!!!!!!!! look into this
-prediction = model.predict([prepare("../input/chest-xray-pneumonia/chest_xray/test/PNEUMONIA/person101_bacteria_486.jpeg")])
+prediction = model.predict([prepare("./img/chest_xray/test/PNEUMONIA/person101_bacteria_486.jpeg")])
 print(labels[int(prediction[0])])
