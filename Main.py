@@ -135,6 +135,10 @@ import tensorflow as tf
 from tensorflow.keras.layers import Flatten, Conv2D, Activation, Dense, Dropout, MaxPooling2D   #issues with this RED!!!
 from tensorflow.keras.models import Sequential                                                  #issues with this RED!!!
 
+# tentei para resolver os de cima a vermelho 
+# >>pip3 install ––upgrade setuptools
+# >>python -m pip install --upgrade pip
+
 
 #in [14]
 model = Sequential()
