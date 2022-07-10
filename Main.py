@@ -57,7 +57,7 @@ def get_data_train(data_dir):
             try:
                 img_array = cv2.imread(os.path.join(path, img), cv2.IMREAD_GRAYSCALE)
                 new_array = cv2.resize(img_array, (IMG_SIZE, IMG_SIZE))
-                data.append([new_array, class_num], dtype=object)                       # !!!!! EVEN with Manually added dtype=object to resolve ERROR VisibleDeprecationWarning: 
+                data.append([new_array, class_num])                                     # !!!!! EVEN with Manually added dtype=object to resolve ERROR VisibleDeprecationWarning: 
                                                                                         # the behaviour seems to be off by a mile, list.append() takes no keyword arguments 
                                                                                         # *shown on terminal for each image scanned, aka WRITES exception for each image
             except Exception as e:
@@ -78,7 +78,9 @@ for i in train:
     else:
        l.append("Pneumonia")
         
-sns.countplot(l)
+sns.countplot(l)                        # Does not show the graph plot 
+
+#out [8]    <matplotlib.axes._subplots.AxesSubplot at 0x7fa43ba0f750>   !!! missing
 
 #in [9]
 X_train = []
@@ -101,3 +103,164 @@ for feature, label in test:
 for feature, label in val:
     X_val.append(feature)
     y_val.append(label)
+    
+#in [10]
+X_train = np.array(X_train) / 255
+X_val = np.array(X_val) / 255
+X_test = np.array(X_test) / 255
+
+#in [11]
+X_test.shape
+
+#out [11] (624, 50, 50)
+
+#in [12]
+X_train = X_train.reshape(-1, IMG_SIZE, IMG_SIZE, 1)
+y_train = np.array(y_train)
+
+X_val = X_val.reshape(-1, IMG_SIZE, IMG_SIZE, 1)
+y_val = np.array(y_val)
+
+X_test = X_test.reshape(-1, IMG_SIZE, IMG_SIZE, 1)
+y_test = np.array(y_test)
+
+#in [13]
+# https://www.tensorflow.org/install
+# Requires the latest pip >>> pip install --upgrade pip
+# Current stable release for CPU and GPU >>>  pip install tensorflow
+# Or try the preview build (unstable) >>> pip install tf-nightly
+# all into CMD
+
+import tensorflow as tf
+from tensorflow.keras.layers import Flatten, Conv2D, Activation, Dense, Dropout, MaxPooling2D
+from tensorflow.keras.models import Sequential
+
+
+#in [14]
+model = Sequential()
+
+model.add(Conv2D(32, (3, 3), padding="same", input_shape=X_train.shape[1:]))
+model.add(Activation("relu"))
+model.add(MaxPooling2D(2, 2))
+model.add(Dropout(0.2))
+
+model.add(Conv2D(64, (3, 3), padding="same"))
+model.add(Activation("relu"))
+model.add(MaxPooling2D(2, 2))
+model.add(Dropout(0.2))
+
+model.add(Conv2D(128, (3, 3), padding="same"))
+model.add(Activation("relu"))
+model.add(MaxPooling2D(2, 2))
+model.add(Dropout(0.2))
+
+model.add(Flatten())
+model.add(Dense(128, activation="relu"))
+
+model.add(Dense(1))
+model.add(Activation("sigmoid"))
+
+model.compile(loss="binary_crossentropy", optimizer="adam", metrics=["accuracy"])
+history = model.fit(X_train, y_train, epochs=25, validation_data=(X_val, y_val), shuffle=True)
+scores = model.evaluate(X_test, y_test)
+
+model.save("cnn.model")
+
+#in [15]
+# scores
+print("Test loss {}".format(scores[0]))
+print("Test accuracy {}".format(scores[1]))
+
+# expected results
+#Test loss 1.0829148292541504
+#Test accuracy 0.8108974099159241
+
+
+#in [16]
+# visualization
+
+import matplotlib.pyplot as plt
+accuracy = history.history['accuracy']
+val_accuracy = history.history['val_accuracy']
+loss = history.history['loss']
+val_loss = history.history['val_loss']
+epochs = range(len(accuracy))
+
+plt.plot(epochs, accuracy, "b", label="trainning accuracy")
+plt.plot(epochs, val_accuracy, "r", label="validation accuracy")
+plt.legend()
+plt.show()
+
+plt.plot(epochs, loss, "b", label="trainning loss")
+plt.plot(epochs, val_loss, "r", label="validation loss")
+plt.legend()
+plt.show()
+
+#in [17]
+# predict classes
+
+prediction = model.predict_classes(X_test)
+prediction = prediction.reshape(1, -1)[0]
+prediction[:15]
+
+#out [17] array([0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1], dtype=int32)
+
+#in [18]
+# correct and incorrect
+# you can check tensorflow website
+
+correct = np.nonzero(prediction == y_test)[0]
+incorrect = np.nonzero(prediction != y_test)[0]
+
+#in [19] Visualize some correct
+j = 0
+for i in correct[:6]:
+    plt.subplot(3,2,j+1)
+    plt.xticks([])
+    plt.yticks([])
+    plt.imshow(X_test[i].reshape(50,50), cmap="gray", interpolation='none')
+    plt.title("Predicted Class {},Actual Class {}".format(prediction[i], y_test[i]))
+    plt.xlabel(labels[prediction[i]])
+    plt.tight_layout()
+    j += 1
+
+#in [20] Some inccorect visualization
+j = 0
+for i in incorrect[:6]:
+    plt.subplot(3,2,j+1)
+    plt.xticks([])
+    plt.yticks([])
+    plt.imshow(X_test[i].reshape(50,50), cmap="gray", interpolation='none')
+    plt.title("Predicted Class {},Actual Class {}".format(prediction[i], y_test[i]))
+    plt.xlabel(labels[prediction[i]])
+    plt.tight_layout()
+    j += 1
+    
+#in [21]
+# load model and predict some some external photo
+
+labels = ["NORMAL", "PNEUMONIA"]
+def prepare(filepath):
+    img_array = cv2.imread(filepath, cv2.IMREAD_GRAYSCALE)
+    new_array = cv2.resize(img_array, (IMG_SIZE, IMG_SIZE))
+    return new_array.reshape(-1, IMG_SIZE, IMG_SIZE, 1)
+
+model = tf.keras.models.load_model("cnn.model") # load model
+
+#in [22] !!!!!!!!!!!!!!!!!!!!!! look into this
+# extra pneumonia photo from google
+prediction = model.predict([prepare("../input/images/left-lower-lobe-pneumonia.jpg")])
+print(labels[int(prediction[0])])
+
+#in [23] !!!!!!!!!!!!!!!!!!!!!! look into this
+# extra normal x-ray photo from google
+prediction = model.predict([prepare("../input/images/normal.jpeg")])
+print(labels[int(prediction[0])])
+
+#in [24] !!!!!!!!!!!!!!!!!!!!!! look into this
+prediction = model.predict([prepare("../input/chest-xray-pneumonia/chest_xray/test/PNEUMONIA/person100_bacteria_475.jpeg")])
+print(labels[int(prediction[0])])
+
+#in [25] !!!!!!!!!!!!!!!!!!!!!! look into this
+prediction = model.predict([prepare("../input/chest-xray-pneumonia/chest_xray/test/PNEUMONIA/person101_bacteria_486.jpeg")])
+print(labels[int(prediction[0])])
