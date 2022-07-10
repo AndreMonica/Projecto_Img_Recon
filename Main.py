@@ -62,7 +62,7 @@ def get_data_train(data_dir):
                                                                                         # *shown on terminal for each image scanned, aka WRITES exception for each image
             except Exception as e:
                 print(e)
-    return np.array(data)
+    return np.array(data, dtype = object)                                               #the problem was over here, not upthere
 
 #in [7] 
 # get Data to train
