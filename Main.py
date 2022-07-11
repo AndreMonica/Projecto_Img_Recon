@@ -142,6 +142,7 @@ from tensorflow.python.keras.models import Sequential                           
 # nao deu em nada
 # tensorflow 2.9.1
 # Keras 2.9.0
+# Tive um erro com o pip -> o que resolveu >>>python -m ensurepip --upgrade 
 
 
 
