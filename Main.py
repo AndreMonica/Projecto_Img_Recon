@@ -144,6 +144,7 @@ from tensorflow.python.keras.models import Sequential                           
 # nao deu em nada
 # tensorflow 2.9.1
 # Keras 2.9.0
+# Tive um erro com o pip -> o que resolveu >>>python -m ensurepip --upgrade 
 
 
 
@@ -236,7 +237,7 @@ for i in correct[:6]:
     plt.tight_layout()
     j += 1
 
-#in [20] Some inccorect visualization
+#in [20] Some incorrect visualization
 j = 0
 for i in incorrect[:6]:
     plt.subplot(3,2,j+1)
@@ -249,7 +250,7 @@ for i in incorrect[:6]:
     j += 1
     
 #in [21]
-# load model and predict some some external photo
+# load model and predict some external photo
 
 labels = ["NORMAL", "PNEUMONIA"]
 def prepare(filepath):
