@@ -70,7 +70,9 @@ train = get_data_train(train_folder)
 test = get_data_train(test_folder)
 val = get_data_train(val_folder)
 
-#in [8]
+#in [8] 
+
+## add outro & teeth
 l = []
 for i in train:
     if(i[1] == 0):
@@ -175,6 +177,7 @@ scores = model.evaluate(X_test, y_test)
 
 model.save("cnn.model")
 
+
 #in [15]
 # scores
 print("Test loss {}".format(scores[0]))
@@ -258,18 +261,18 @@ model = tf.keras.models.load_model("cnn.model") # load model
 
 #in [22] !!!!!!!!!!!!!!!!!!!!!! look into this
 # extra pneumonia photo from google
-prediction = model.predict([prepare("./img/protest/left-lower-lobe-pneumonia.jpg")])
+prediction = model.predict([prepare("./img/protest/test_set/penyakit-non-periodontal/nonperiodontal_1.png")])
 print(labels[int(prediction[0])])
 
 #in [23] !!!!!!!!!!!!!!!!!!!!!! look into this
 # extra normal x-ray photo from google
-prediction = model.predict([prepare("./img/protest/normal.jpeg")])
+prediction = model.predict([prepare("./img/protest/test_set/penyakit-non-periodontal/nonperiodontal_2.png")])
 print(labels[int(prediction[0])])
 
 #in [24] !!!!!!!!!!!!!!!!!!!!!! look into this
-prediction = model.predict([prepare("./img/chest_xray/test/PNEUMONIA/person100_bacteria_475.jpeg")])
+prediction = model.predict([prepare("./img/protest/test_set/penyakit-non-periodontal/nonperiodontal_3.png")])
 print(labels[int(prediction[0])])
 
 #in [25] !!!!!!!!!!!!!!!!!!!!!! look into this
-prediction = model.predict([prepare("./img/chest_xray/test/PNEUMONIA/person101_bacteria_486.jpeg")])
+prediction = model.predict([prepare("./img/protest/test_set/penyakit-non-periodontal/nonperiodontal_4.png")])
 print(labels[int(prediction[0])])
