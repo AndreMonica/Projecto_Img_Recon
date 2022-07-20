@@ -131,15 +131,11 @@
         <div class="w3-hide-large" style="margin-top:83px"></div>
 
         <!-- Top header -->
-        <header class="w3-container w3-xlarge">
+        <header class="w3-container w3-xlarge" id="div5">
             <p class="w3-left">Dentista</p>
             <p class="w3-right">
                 <i class="fa fa-search"></i>
             </p>
-            <div class="w3-container w3-text-grey" id="Dentisa">
-                <p>Small text area keep aliveSmall text area keep alive</p> <!-- AKA "Home page "-->
-                <br><br>
-            </div>
         </header>
 
       
@@ -148,19 +144,25 @@
         <p>MENU Hide test</p>
         <div class="buttons">
             <a id="showall">All</a><br>
-            <a class="showSingle" target="1" rel="noopener">Sign In</a><br>
-            <a class="showSingle" target="2" rel="noopener">Sign Up</a><br>
-            <a class="showSingle" target="3" rel="noopener">Contacts</a><br>
-            <a class="showSingle" target="4" rel="noopener">Reports</a><br>
-            <a class="showSingle" target="5" rel="noopener">div5</a><br>
+            <a class="showSingle" target="Home" rel="noopener">Home</a><br>
+            <a class="showSingle" target="In" rel="noopener">Sign In</a><br>
+            <a class="showSingle" target="Up" rel="noopener">Sign Up</a><br>
+            <a class="showSingle" target="Report" rel="noopener">Reports</a><br>
+            <a class="showSingle" target="Contact" rel="noopener">Contacts</a><br>            
             <a class="showSingle" target="6" rel="noopener">div6</a><br>
         </div>
           
         <br>
 
+        <!-- Home Area -->
+        <div class="w3-container w3-text-grey targetDiv" id="divHome">
+
+            <p>Home<br>Home<br>Home<br>Home<br>Home<br>Home<br></p> <!-- AKA "Home page "-->
+            <br><br>
+        </div>
 
         <!-- Image Processing Area -->
-        <div class="w3-container w3-text-grey w3-grey targetDiv" id="div4" hidden>
+        <div class="w3-container w3-text-grey w3-grey targetDiv" id="divReport" hidden>
             <br>
             <p class="w3-green w3-center" style="font-size: 10" > Sucess message, Image uploaded!</p> <!-- add/remove hideen proprety as .js -->
             <div class="form_submit" >
@@ -179,7 +181,7 @@
         </div>
 
         <!-- Sign-in and Sign-up section -->
-        <div class="w3-container w3-row w3-black w3-center targetDiv" id="div1" hidden>
+        <div class="w3-container w3-row w3-black w3-center targetDiv" id="divIn" hidden>
             <!-- Sign-in  -->
             <div class="w3-center w3-container" >
                 <h4>Sign In</h4>
@@ -197,7 +199,7 @@
         </div>
 
          <!-- Sing-Up  -->
-         <div class="w3-container w3-row w3-black w3-center targetDiv" id="div2" hidden>
+         <div class="w3-container w3-row w3-black w3-center targetDiv" id="divUp" hidden>
             <div class="w3-col w3-center w3-container">
                 <h4>Sign Up</h4>
                 <p>Enter your details to Sign Up!</p>
@@ -214,7 +216,7 @@
         
 
         
-        <div class="w3-padding-64 w3-light-grey w3-small w3-center targetDiv" id="div3" hidden>
+        <div class="w3-padding-64 w3-light-grey w3-small w3-center targetDiv" id="divContact" hidden>
             <div class="w3-row-padding">
                 <div class="w3-col s4">
                     <h4>Contact</h4>
