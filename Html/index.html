@@ -147,24 +147,26 @@
         <br>
         <p>MENU Hide test</p>
         <div class="buttons">
-            <a id="showall">All</a>
-            <a class="showSingle" target="1" rel="noopener">Sign In</a>
-            <a class="showSingle" target="2" rel="noopener">Sign Up</a>
-            <a class="showSingle" target="3" rel="noopener">Contacts</a>
-            <a class="showSingle" target="4" rel="noopener">Reports</a>
-            <a class="showSingle" target="5" rel="noopener">Reports</a>
-            <a class="showSingle" target="6" rel="noopener">Reports</a>
+            <a id="showall">All</a><br>
+            <a class="showSingle" target="1" rel="noopener">Sign In</a><br>
+            <a class="showSingle" target="2" rel="noopener">Sign Up</a><br>
+            <a class="showSingle" target="3" rel="noopener">Contacts</a><br>
+            <a class="showSingle" target="4" rel="noopener">Reports</a><br>
+            <a class="showSingle" target="5" rel="noopener">div5</a><br>
+            <a class="showSingle" target="6" rel="noopener">div6</a><br>
         </div>
           
         <br>
 
 
         <!-- Image Processing Area -->
-        <div class="w3-container w3-text-grey w3-grey targetDiv" id="div4">
+        <div class="w3-container w3-text-grey w3-grey targetDiv" id="div4" hidden>
             <br>
             <p class="w3-green w3-center" style="font-size: 10" > Sucess message, Image uploaded!</p> <!-- add/remove hideen proprety as .js -->
             <div class="form_submit" >
                 <h2>Submit your image here for processing</h2>
+                <img src="img/img_Template.JPG" alt="profile-icon" style="max-width: 50%;"> <!-- Have to make it change to image submited once server can accept it-->
+
                 <form action="/action_page.php">   <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT! server side -->
                     <label for="img">Select image:</label>
                     <br>
@@ -177,7 +179,7 @@
         </div>
 
         <!-- Sign-in and Sign-up section -->
-        <div class="w3-container w3-row w3-black w3-center targetDiv" id="div1">
+        <div class="w3-container w3-row w3-black w3-center targetDiv" id="div1" hidden>
             <!-- Sign-in  -->
             <div class="w3-center w3-container" >
                 <h4>Sign In</h4>
@@ -195,7 +197,7 @@
         </div>
 
          <!-- Sing-Up  -->
-         <div class="w3-container w3-row w3-black w3-center targetDiv" id="div2">
+         <div class="w3-container w3-row w3-black w3-center targetDiv" id="div2" hidden>
             <div class="w3-col w3-center w3-container">
                 <h4>Sign Up</h4>
                 <p>Enter your details to Sign Up!</p>
@@ -212,7 +214,7 @@
         
 
         
-        <div class="w3-padding-64 w3-light-grey w3-small w3-center targetDiv" id="div3">
+        <div class="w3-padding-64 w3-light-grey w3-small w3-center targetDiv" id="div3" hidden>
             <div class="w3-row-padding">
                 <div class="w3-col s4">
                     <h4>Contact</h4>
