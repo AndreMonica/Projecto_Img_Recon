@@ -131,12 +131,13 @@
 
         <!-- Image Processing Area -->
         <div class="w3-container w3-text-grey w3-amber" id="Image_Processing">
-            <br><br>
-            <p class="w3-green" style="font-size: 10" > Sucess message</p> <!-- add/remove hideen proprety as .js -->
-            <div >
+            <br>
+            <p class="w3-green w3-center" style="font-size: 10" > Sucess message, Image uploaded!</p> <!-- add/remove hideen proprety as .js -->
+            <div class="form_submit" >
                 <h2>Submit your image here for processing</h2>
                 <form action="/action_page.php">   <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT! server side -->
                     <label for="img">Select image:</label>
+                    <br>
                     <input type="file" id="img" name="img" accept="image/*">
                     <br>
                     <input type="submit">
