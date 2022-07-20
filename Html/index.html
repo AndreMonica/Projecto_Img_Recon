@@ -2,11 +2,6 @@
     <!-- NOTAS -->
     <!-- 
       ola
-      
-
-
-
-
      -->
 <html>
 
@@ -83,56 +78,66 @@
 
         <!-- Top header -->
         <header class="w3-container w3-xlarge">
-            <p class="w3-left">Jeans</p>
+            <p class="w3-left">Dentista</p>
             <p class="w3-right">
-                <i class="fa fa-shopping-cart w3-margin-right"></i>
                 <i class="fa fa-search"></i>
             </p>
+            <div class="w3-container w3-text-grey" id="Dentisa">
+                <p>Small text area keep aliveSmall text area keep alive</p> <!-- AKA "Home page "-->
+                <br><br><br><br><br>
+            </div>
         </header>
 
-        <!-- Image header -->
+        <!-- Image Processing Area -->
+        <div class="w3-container w3-text-grey w3-amber" id="Image_Processing">
+            <br><br>
+            <p class="w3-green" style="font-size: 10" hidden> Sucess message</p> <!-- add/remove hideen proprety as .js -->
 
-        <div class="w3-container w3-text-grey" id="jeans">
-            <p>Small text area keep aliveSmall text area keep aliveSmall text area keep aliveSmall text area keep aliveSmall text area keep aliveSmall text area keep aliveSmall text area keep aliveSmall text area keep aliveSmall text area keep alive</p>
+            <div>
+                <h2>Submit your image here for processing</h2>
+                <form action="/action_page.php">   <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT! server side -->
+                    <label for="img">Select image:</label>
+                    <input type="file" id="img" name="img" accept="image/*">
+                    <input type="submit">
+                  </form>
+                  <br><br>
+            </div>
         </div>
 
-        <!-- Product grid -->
-        <div class="w3-row w3-grayscale">
-            <h1> test test test test keep area alive </h1>
-        </div>
-
-        <!-- Subscribe section -->
-        <div class="w3-container w3-row w3-black w3-padding-32">
-            <!-- Sing-in  -->
-            <div class="w3-col w3-left w3-container" style="width: 45%">
-                <h4>Sing In</h4>
+        <!-- Sign-in and Sign-up section -->
+        
+        <div class="w3-container w3-row w3-black w3-center">
+            <!-- Sign-in  -->
+            <div class="w3-center w3-container" style="padding-left: 30%; padding-right: 30%;">
+                <h4>Sign In</h4>
                 <p>Hi there! Nice to see you again.</p>
-                <form action="/action_page.php" target="_blank">
+                <form action="/action_page.php" target="_blank">    <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT! server side--> 
                     <p><input class="w3-input w3-border" type="text" placeholder="Email" name="Email" required></p>
                     <p><input class="w3-input w3-border" type="password" placeholder="Password" name="pwd" id="pwd" required></p>
                     <div class="">
-                      <a href=""><button type="submit" class="w3-button w3-block w3-red">Sign In</button></a>
+                        <a href=""><button type="submit" class="w3-button w3-block w3-red">Sign In</button></a>
                     </div>
                 </form>
                 <a href=""><button type="submit" class="w3-button w3-block w3-black">Sign Up</button></a>
                 <a href=""><button class="w3-button w3-block w3-black">Forgot Password?</button></a>
-              </div>
-        
-              <!-- Sing-Up  -->
-              <div class="w3-col w3-right w3-container" style="width: 45%">
-                <h4>Sing Up</h4>
-                <p>Enter your details to Sign Up!</p>
-                  <form action="/action_page.php" target="_blank">
-                    <p><input class="w3-input w3-border" type="text" placeholder="Email" name="Email" required></p>
-                    <p><input class="w3-input w3-border" type="password" placeholder="Password" name="pwd" id="pwd" required></p>
-                    <input type="checkbox" id="terms" name="terms" value="Terms_Accepted" required>
-                    <label for="terms" required> I agree to the Terms of Services and Privacy Policy</label><br>
-                    <a href=""><button type="submit" class="w3-button w3-block w3-red">Continue</button></a>
-                  </form>
-                <p style="text-align: center;" >Have an Account? <a href="">Sign In</a></p>
-              </div>
             </div>
-       
+        </div>
+
+         <!-- Sing-Up  -->
+         <div class="w3-container w3-row w3-black w3-center">
+            <div class="w3-col w3-center w3-container" style="padding-left: 30%; padding-right: 30%;">
+                <h4>Sign Up</h4>
+                <p>Enter your details to Sign Up!</p>
+                    <form action="/action_page.php" target="_blank">    <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT!  server side-->
+                        <p><input class="w3-input w3-border" type="text" placeholder="Email" name="Email" required></p>
+                        <p><input class="w3-input w3-border" type="password" placeholder="Password" name="pwd" id="pwd" required></p>
+                        <input type="checkbox" id="terms" name="terms" value="Terms_Accepted" required>
+                        <label for="terms" required> I agree to the Terms of Services and Privacy Policy</label><br>
+                        <a href=""><button type="submit" class="w3-button w3-block w3-red">Continue</button></a>
+                    </form>
+                <p style="text-align: center;" >Have an Account? <a href="">Sign In</a></p>
+            </div>
+        </div>
         
 
         <!-- Footer -->
@@ -141,7 +146,7 @@
                 <div class="w3-col s4">
                     <h4>Contact</h4>
                     <p>Questions? Go ahead.</p>
-                    <form action="/action_page.php" target="_blank">
+                    <form action="/action_page.php" target="_blank">  <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT!  server side-->
                         <p><input class="w3-input w3-border" type="text" placeholder="Name" name="Name" required></p>
                         <p><input class="w3-input w3-border" type="text" placeholder="Email" name="Email" required></p>
                         <p><input class="w3-input w3-border" type="text" placeholder="Subject" name="Subject" required></p>
