@@ -35,6 +35,10 @@
             box-sizing: border-box;
         }
         
+        .nav {
+            font:
+        }
+        
         .menu {
             float: left;
             width: 20%;
@@ -95,28 +99,31 @@
     <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
         <div class="w3-container w3-display-container w3-padding-16">
             <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
-            <h3 class="w3-wide"><b>LOGO</b></h3>
+            <h3 class="w3-wide"><b>Dental Diagnosis</b></h3>
         </div>
+
+        <br>
+        <div class="buttons">
+            <a id="showall">All</a><br>
+            <a class="showSingle" target="Home" rel="noopener">Home</a><br>
+            <a class="showSingle" target="In" rel="noopener">Sign In</a><br>
+            <a class="showSingle" target="Up" rel="noopener">Sign Up</a><br>
+            <a class="showSingle" target="Report" rel="noopener">Reports</a><br>
+            <a class="showSingle" target="Contact" rel="noopener">Contacts</a><br>
+            <a class="showSingle" target="6" rel="noopener">div6</a><br>
+        </div>
+        <br>
+
         <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
             <a href="#" class="w3-bar-item w3-button">Home</a>
             <a href="#" class="w3-bar-item w3-button">Reports</a>
             <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
       Upload Photo<i class="fa fa-caret-down"></i>
     </a>
-            <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-                <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Skinny</a>
-                <a href="#" class="w3-bar-item w3-button">Relaxed</a>
-                <a href="#" class="w3-bar-item w3-button">Bootcut</a>
-                <a href="#" class="w3-bar-item w3-button">Straight</a>
-            </div>
-            <a href="#" class="w3-bar-item w3-button">Jackets</a>
-            <a href="#" class="w3-bar-item w3-button">Gymwear</a>
-            <a href="#" class="w3-bar-item w3-button">Blazers</a>
-            <a href="#" class="w3-bar-item w3-button">Shoes</a>
-        </div>
-        <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>
-        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a>
-        <a href="#footer" class="w3-bar-item w3-button w3-padding">Subscribe</a>
+
+            <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a>
+            <a href="#footer" class="w3-bar-item w3-button w3-padding">Subscribe</a>
     </nav>
 
     <!-- Top menu on small screens -->
@@ -207,7 +214,7 @@
             </div>
         </div>
 
-        <!-- Sig-Up  -->
+        <!-- Sign-Up  -->
         <div class="w3-container w3-row w3-black w3-center targetDiv" id="divUp" hidden>
             <div class="w3-col w3-center w3-container">
                 <h4>Sign Up</h4>
