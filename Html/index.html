@@ -28,6 +28,47 @@
         .w3-wide {
             font-family: "Montserrat", sans-serif;
         }
+        
+        * {
+        box-sizing: border-box;
+        }
+
+        .menu {
+        float: left;
+        width: 20%;
+        text-align: center;
+        }
+
+        .menu a {
+        background-color: #e5e5e5;
+        padding: 8px;
+        margin-top: 7px;
+        display: block;
+        width: 100%;
+        color: black;
+        }
+
+        .main {
+        float: left;
+        width: 60%;
+        padding: 0 20px;
+        }
+
+        .right {
+        background-color: #e5e5e5;
+        float: left;
+        width: 20%;
+        padding: 15px;
+        margin-top: 7px;
+        text-align: center;
+        }
+
+        @media only screen and (max-width:992px) {
+        /* For mobile phones: */
+        .menu, .main, .right {
+            width: 100%;
+        }
+        }
     </style>
 </head>
 
@@ -91,24 +132,24 @@
         <!-- Image Processing Area -->
         <div class="w3-container w3-text-grey w3-amber" id="Image_Processing">
             <br><br>
-            <p class="w3-green" style="font-size: 10" hidden> Sucess message</p> <!-- add/remove hideen proprety as .js -->
-
-            <div>
+            <p class="w3-green" style="font-size: 10" > Sucess message</p> <!-- add/remove hideen proprety as .js -->
+            <div >
                 <h2>Submit your image here for processing</h2>
                 <form action="/action_page.php">   <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT! server side -->
                     <label for="img">Select image:</label>
                     <input type="file" id="img" name="img" accept="image/*">
+                    <br>
                     <input type="submit">
                   </form>
                   <br><br>
             </div>
         </div>
 
+
         <!-- Sign-in and Sign-up section -->
-        
         <div class="w3-container w3-row w3-black w3-center">
             <!-- Sign-in  -->
-            <div class="w3-center w3-container" style="padding-left: 30%; padding-right: 30%;">
+            <div class="w3-center w3-container" >
                 <h4>Sign In</h4>
                 <p>Hi there! Nice to see you again.</p>
                 <form action="/action_page.php" target="_blank">    <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT! server side--> 
@@ -124,8 +165,8 @@
         </div>
 
          <!-- Sing-Up  -->
-         <div class="w3-container w3-row w3-black w3-center">
-            <div class="w3-col w3-center w3-container" style="padding-left: 30%; padding-right: 30%;">
+         <div class="w3-container w3-row w3-black w3-center ">
+            <div class="w3-col w3-center w3-container">
                 <h4>Sign Up</h4>
                 <p>Enter your details to Sign Up!</p>
                     <form action="/action_page.php" target="_blank">    <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT!  server side-->
@@ -185,11 +226,12 @@
                 </div>
             </div>
         </footer>
-
-        <div class="w3-black w3-center w3-padding-24">Trabalho feito por Ana Maria, Andre Monica</div>
+        <div class="w3-black w3-padding-24 w3-center">Trabalho feito por Ana Maria, Andre Monica</div>
+    </div>
+        
 
         <!-- End page content -->
-    </div>
+    
 
     <!-- Newsletter Modal -->
     <div id="newsletter" class="w3-modal">
