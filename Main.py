@@ -34,9 +34,15 @@ print(DIR)
 
 #in [4]
 #define the folder's content 
-train_folder = './img/chest_xray/train'
-test_folder = './img/chest_xray/test'
-val_folder = './img/chest_xray/val'
+#train_folder = './img/chest_xray/train'
+#test_folder = './img/chest_xray/test'
+#val_folder = './img/chest_xray/val'
+
+#in [4 extra teeth]
+#define the folder's content 
+train_folder = './img/teeth/training_set'
+test_folder = './img/teeth/test_set'
+val_folder = './img/teeth/validation_set'
 
 #in [5]
 import matplotlib.pyplot as plt     # matplotlib, self explanatory
@@ -45,7 +51,7 @@ from PIL import Image
 import random
 
 #in [6]
-labels = ["NORMAL", "PNEUMONIA"]    # each folder has two sub folder name "PNEUMONIA", "NORMAL"
+labels = ["NORMAL", "NOT"]    # each folder has two sub folder name "PNEUMONIA", "NORMAL"
 IMG_SIZE = 50                       # resize image
 
 def get_data_train(data_dir): 
@@ -78,7 +84,7 @@ for i in train:
     if(i[1] == 0):
        l.append("Normal")
     else:
-       l.append("Pneumonia")
+       l.append("NOT")
         
 sns.countplot(l)                        # shows graphplot
 
@@ -252,7 +258,7 @@ for i in incorrect[:6]:
 #in [21]
 # load model and predict some external photo
 
-labels = ["NORMAL", "PNEUMONIA"]
+labels = ["NORMAL", "NOT"]
 def prepare(filepath):
     img_array = cv2.imread(filepath, cv2.IMREAD_GRAYSCALE)
     new_array = cv2.resize(img_array, (IMG_SIZE, IMG_SIZE))
@@ -271,9 +277,9 @@ prediction = model.predict([prepare("./img/protest/test_set/penyakit-non-periodo
 print(labels[int(prediction[0])])
 
 #in [24] !!!!!!!!!!!!!!!!!!!!!! look into this
-prediction = model.predict([prepare("./img/protest/test_set/penyakit-non-periodontal/nonperiodontal_3.png")])
+prediction = model.predict([prepare("./img/protest/test_set/penyakit-periodontal/periodontal_1.png")])
 print(labels[int(prediction[0])])
 
 #in [25] !!!!!!!!!!!!!!!!!!!!!! look into this
-prediction = model.predict([prepare("./img/protest/test_set/penyakit-non-periodontal/nonperiodontal_4.png")])
+prediction = model.predict([prepare("./img/protest/test_set/penyakit-periodontal/periodontal_4.png")])
 print(labels[int(prediction[0])])
