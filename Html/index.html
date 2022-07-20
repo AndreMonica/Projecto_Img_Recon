@@ -70,6 +70,19 @@
         }
         }
     </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        jQuery(function() {
+            jQuery('#showall').click(function() {
+                jQuery('.targetDiv').show();
+            });
+            jQuery('.showSingle').click(function() {
+                jQuery('.targetDiv').hide();
+                jQuery('#div' + $(this).attr('target')).show();
+            });
+        });
+    </script>
 </head>
 
 <body class="w3-content" style="max-width:1200px">
@@ -125,12 +138,29 @@
             </p>
             <div class="w3-container w3-text-grey" id="Dentisa">
                 <p>Small text area keep aliveSmall text area keep alive</p> <!-- AKA "Home page "-->
-                <br><br><br><br><br>
+                <br><br>
             </div>
         </header>
 
+      
+        <!-- Testing area -->
+        <br>
+        <p>MENU Hide test</p>
+        <div class="buttons">
+            <a id="showall">All</a>
+            <a class="showSingle" target="1" rel="noopener">Sign In</a>
+            <a class="showSingle" target="2" rel="noopener">Sign Up</a>
+            <a class="showSingle" target="3" rel="noopener">Contacts</a>
+            <a class="showSingle" target="4" rel="noopener">Reports</a>
+            <a class="showSingle" target="5" rel="noopener">Reports</a>
+            <a class="showSingle" target="6" rel="noopener">Reports</a>
+        </div>
+          
+        <br>
+
+
         <!-- Image Processing Area -->
-        <div class="w3-container w3-text-grey w3-amber" id="Image_Processing">
+        <div class="w3-container w3-text-grey w3-grey targetDiv" id="div6">
             <br>
             <p class="w3-green w3-center" style="font-size: 10" > Sucess message, Image uploaded!</p> <!-- add/remove hideen proprety as .js -->
             <div class="form_submit" >
@@ -146,9 +176,8 @@
             </div>
         </div>
 
-
         <!-- Sign-in and Sign-up section -->
-        <div class="w3-container w3-row w3-black w3-center">
+        <div class="w3-container w3-row w3-black w3-center targetDiv" id="div1">
             <!-- Sign-in  -->
             <div class="w3-center w3-container" >
                 <h4>Sign In</h4>
@@ -166,7 +195,7 @@
         </div>
 
          <!-- Sing-Up  -->
-         <div class="w3-container w3-row w3-black w3-center ">
+         <div class="w3-container w3-row w3-black w3-center targetDiv" id="div2">
             <div class="w3-col w3-center w3-container">
                 <h4>Sign Up</h4>
                 <p>Enter your details to Sign Up!</p>
@@ -182,8 +211,8 @@
         </div>
         
 
-        <!-- Footer -->
-        <footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
+        
+        <div class="w3-padding-64 w3-light-grey w3-small w3-center targetDiv" id="div3">
             <div class="w3-row-padding">
                 <div class="w3-col s4">
                     <h4>Contact</h4>
@@ -226,11 +255,13 @@
                     <i class="fa fa-linkedin w3-hover-opacity w3-large"></i>
                 </div>
             </div>
-        </footer>
-        <div class="w3-black w3-padding-24 w3-center">Trabalho feito por Ana Maria, Andre Monica</div>
-    </div>
-        
+        </div>
 
+
+        <!-- Footer -->
+        <footer>
+            <div class="w3-black w3-padding-24 w3-center">Trabalho feito por Ana Maria, Andre Monica</div>
+        </footer>
         <!-- End page content -->
     
 
