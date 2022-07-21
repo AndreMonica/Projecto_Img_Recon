@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-    <!-- NOTAS -->
-    <!-- 
+<!-- NOTAS -->
+<!-- 
       ola
+
+      Olá, estou a tentar tratar do sidebar menu
      -->
 <html>
 
@@ -13,6 +15,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <style>
         .w3-sidebar a {
             font-family: "Roboto", sans-serif
@@ -30,44 +33,46 @@
         }
         
         * {
-        box-sizing: border-box;
+            box-sizing: border-box;
         }
-
+        
         .menu {
-        float: left;
-        width: 20%;
-        text-align: center;
+            float: left;
+            width: 20%;
+            text-align: center;
         }
-
+        
         .menu a {
-        background-color: #e5e5e5;
-        padding: 8px;
-        margin-top: 7px;
-        display: block;
-        width: 100%;
-        color: black;
-        }
-
-        .main {
-        float: left;
-        width: 60%;
-        padding: 0 20px;
-        }
-
-        .right {
-        background-color: #e5e5e5;
-        float: left;
-        width: 20%;
-        padding: 15px;
-        margin-top: 7px;
-        text-align: center;
-        }
-
-        @media only screen and (max-width:992px) {
-        /* For mobile phones: */
-        .menu, .main, .right {
+            background-color: #e5e5e5;
+            padding: 8px;
+            margin-top: 7px;
+            display: block;
             width: 100%;
+            color: black;
         }
+        
+        .main {
+            float: left;
+            width: 60%;
+            padding: 0 20px;
+        }
+        
+        .right {
+            background-color: #e5e5e5;
+            float: left;
+            width: 20%;
+            padding: 15px;
+            margin-top: 7px;
+            text-align: center;
+        }
+        
+        @media only screen and (max-width:992px) {
+            /* For mobile phones: */
+            .menu,
+            .main,
+            .right {
+                width: 100%;
+            }
         }
     </style>
 
@@ -91,28 +96,20 @@
     <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
         <div class="w3-container w3-display-container w3-padding-16">
             <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
-            <h3 class="w3-wide"><b>LOGO</b></h3>
+            <h3 class="w3-wide"><b>Dental Diagnosis</b></h3>
         </div>
-        <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
-            <a href="#" class="w3-bar-item w3-button">Home</a>
-            <a href="#" class="w3-bar-item w3-button">Reports</a>
-            <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
-      Upload Photo<i class="fa fa-caret-down"></i>
-    </a>
-            <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-                <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Skinny</a>
-                <a href="#" class="w3-bar-item w3-button">Relaxed</a>
-                <a href="#" class="w3-bar-item w3-button">Bootcut</a>
-                <a href="#" class="w3-bar-item w3-button">Straight</a>
-            </div>
-            <a href="#" class="w3-bar-item w3-button">Jackets</a>
-            <a href="#" class="w3-bar-item w3-button">Gymwear</a>
-            <a href="#" class="w3-bar-item w3-button">Blazers</a>
-            <a href="#" class="w3-bar-item w3-button">Shoes</a>
+
+        <div class="buttons">
+            <img src="profile-icon.jpg" alt="Profile picture">
+            <a id="showall">All</a><br>
+            <a class="showSingle" target="Home" style="font-weight:bold" rel="noopener">Home</a><br>
+            <a class="showSingle" target="In" style="font-weight:bold" rel="noopener">Sign In</a><br>
+            <a class="showSingle" target="Up" rel="noopener">Sign Up</a><br>
+            <a class="showSingle" target="Report" rel="noopener">Reports</a><br>
+            <a class="showSingle" target="Contact" rel="noopener">Contacts</a><br>
+            <a class="showSingle" target="6" rel="noopener">div6</a><br>
         </div>
-        <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>
-        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a>
-        <a href="#footer" class="w3-bar-item w3-button w3-padding">Subscribe</a>
+        <br>
     </nav>
 
     <!-- Top menu on small screens -->
@@ -138,55 +135,61 @@
             </p>
         </header>
 
-      
-        <!-- Testing area -->
+
+        <!-- Testing area
         <br>
         <p>MENU Hidden test</p>
         <div class="buttons">
             <a id="showall">All</a><br>
+            <a class="showSingle" target="Pr" rel="noopener">Home</a><br>
             <a class="showSingle" target="Home" rel="noopener">Home</a><br>
             <a class="showSingle" target="In" rel="noopener">Sign In</a><br>
             <a class="showSingle" target="Up" rel="noopener">Sign Up</a><br>
             <a class="showSingle" target="Report" rel="noopener">Reports</a><br>
-            <a class="showSingle" target="Contact" rel="noopener">Contacts</a><br>            
+            <a class="showSingle" target="Contact" rel="noopener">Contacts</a><br>
             <a class="showSingle" target="6" rel="noopener">div6</a><br>
         </div>
-          
-        <br>
+
+        <br> -->
 
         <!-- Home Area -->
         <div class="w3-container w3-text-grey targetDiv" id="divHome">
 
-            <p>Home<br>Home<br>Home<br>Home<br>Home<br>Home<br></p> <!-- AKA "Home page "-->
+            <p>Home<br>Home<br>Home<br>Home<br>Home<br>Home<br></p>
+            <!-- AKA "Home page "-->
             <br><br>
         </div>
 
         <!-- Image Processing Area -->
         <div class="w3-container w3-text-grey w3-grey targetDiv" id="divReport" hidden>
             <br>
-            <p class="w3-green w3-center" style="font-size: 10" > Sucess message, Image uploaded!</p> <!-- add/remove hideen proprety as .js -->
-            <div class="form_submit" >
+            <p class="w3-green w3-center" style="font-size: 10"> Sucess message, Image uploaded!</p>
+            <!-- add/remove hideen proprety as .js -->
+            <div class="form_submit">
                 <h2>Submit your image here for processing</h2>
-                <img src="img/img_Template.JPG" alt="profile-icon" style="max-width: 50%;"> <!-- Have to make it change to image submited once server can accept it-->
+                <img src="img/img_Template.JPG" alt="profile-icon" style="max-width: 50%;">
+                <!-- Have to make it change to image submited once server can accept it-->
 
-                <form action="/action_page.php">   <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT! server side -->
+                <form action="/action_page.php">
+                    <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT! server side -->
                     <label for="img">Select image:</label>
                     <br>
                     <input type="file" id="img" name="img" accept="image/*">
                     <br>
                     <input type="submit">
-                  </form>
-                  <br><br>
+                </form>
+                <br><br>
             </div>
         </div>
 
         <!-- Sign-in and Sign-up section -->
         <div class="w3-container w3-row w3-black w3-center targetDiv" id="divIn" hidden>
             <!-- Sign-in  -->
-            <div class="w3-center w3-container" >
+            <div class="w3-center w3-container">
                 <h4>Sign In</h4>
                 <p>Hi there! Nice to see you again.</p>
-                <form action="/action_page.php" target="_blank">    <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT! server side--> 
+                <form action="/action_page.php" target="_blank">
+                    <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT! server side-->
                     <p><input class="w3-input w3-border" type="text" placeholder="Email" name="Email" required></p>
                     <p><input class="w3-input w3-border" type="password" placeholder="Password" name="pwd" id="pwd" required></p>
                     <div class="">
@@ -198,30 +201,32 @@
             </div>
         </div>
 
-         <!-- Sing-Up  -->
-         <div class="w3-container w3-row w3-black w3-center targetDiv" id="divUp" hidden>
+        <!-- Sign-Up  -->
+        <div class="w3-container w3-row w3-black w3-center targetDiv" id="divUp" hidden>
             <div class="w3-col w3-center w3-container">
                 <h4>Sign Up</h4>
                 <p>Enter your details to Sign Up!</p>
-                    <form action="/action_page.php" target="_blank">    <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT!  server side-->
-                        <p><input class="w3-input w3-border" type="text" placeholder="Email" name="Email" required></p>
-                        <p><input class="w3-input w3-border" type="password" placeholder="Password" name="pwd" id="pwd" required></p>
-                        <input type="checkbox" id="terms" name="terms" value="Terms_Accepted" required>
-                        <label for="terms" required> I agree to the Terms of Services and Privacy Policy</label><br>
-                        <a href=""><button type="submit" class="w3-button w3-block w3-red">Continue</button></a>
-                    </form>
-                <p style="text-align: center;" >Have an Account? <a href="">Sign In</a></p>
+                <form action="/action_page.php" target="_blank">
+                    <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT!  server side-->
+                    <p><input class="w3-input w3-border" type="text" placeholder="Email" name="Email" required></p>
+                    <p><input class="w3-input w3-border" type="password" placeholder="Password" name="pwd" id="pwd" required></p>
+                    <input type="checkbox" id="terms" name="terms" value="Terms_Accepted" required>
+                    <label for="terms" required> I agree to the Terms of Services and Privacy Policy</label><br>
+                    <a href=""><button type="submit" class="w3-button w3-block w3-red">Continue</button></a>
+                </form>
+                <p style="text-align: center;">Have an Account? <a href="">Sign In</a></p>
             </div>
         </div>
-        
 
-        
+
+
         <div class="w3-padding-64 w3-light-grey w3-small w3-center targetDiv" id="divContact" hidden>
             <div class="w3-row-padding">
                 <div class="w3-col s4">
                     <h4>Contact</h4>
                     <p>Questions? Go ahead.</p>
-                    <form action="/action_page.php" target="_blank">  <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT!  server side-->
+                    <form action="/action_page.php" target="_blank">
+                        <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT!  server side-->
                         <p><input class="w3-input w3-border" type="text" placeholder="Name" name="Name" required></p>
                         <p><input class="w3-input w3-border" type="text" placeholder="Email" name="Email" required></p>
                         <p><input class="w3-input w3-border" type="text" placeholder="Subject" name="Subject" required></p>
@@ -267,47 +272,47 @@
             <div class="w3-black w3-padding-24 w3-center">Trabalho feito por Ana Maria, Andre Monica</div>
         </footer>
         <!-- End page content -->
-    
 
-    <!-- Newsletter Modal -->
-    <div id="newsletter" class="w3-modal">
-        <div class="w3-modal-content w3-animate-zoom" style="padding:32px">
-            <div class="w3-container w3-white w3-center">
-                <i onclick="document.getElementById('newsletter').style.display='none'" class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"></i>
-                <h2 class="w3-wide">NEWSLETTER</h2>
-                <p>Join our mailing list to receive updates on new arrivals and special offers.</p>
-                <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail"></p>
-                <button type="button" class="w3-button w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('newsletter').style.display='none'">Subscribe</button>
+
+        <!-- Newsletter Modal -->
+        <div id="newsletter" class="w3-modal">
+            <div class="w3-modal-content w3-animate-zoom" style="padding:32px">
+                <div class="w3-container w3-white w3-center">
+                    <i onclick="document.getElementById('newsletter').style.display='none'" class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"></i>
+                    <h2 class="w3-wide">NEWSLETTER</h2>
+                    <p>Join our mailing list to receive updates on new arrivals and special offers.</p>
+                    <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail"></p>
+                    <button type="button" class="w3-button w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('newsletter').style.display='none'">Subscribe</button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <script>
-        // Accordion 
-        function myAccFunc() {
-            var x = document.getElementById("demoAcc");
-            if (x.className.indexOf("w3-show") == -1) {
-                x.className += " w3-show";
-            } else {
-                x.className = x.className.replace(" w3-show", "");
+        <script>
+            // Accordion 
+            function myAccFunc() {
+                var x = document.getElementById("demoAcc");
+                if (x.className.indexOf("w3-show") == -1) {
+                    x.className += " w3-show";
+                } else {
+                    x.className = x.className.replace(" w3-show", "");
+                }
             }
-        }
 
-        // Click on the "Jeans" link on page load to open the accordion for demo purposes
-        document.getElementById("myBtn").click();
+            // Click on the "Jeans" link on page load to open the accordion for demo purposes
+            document.getElementById("myBtn").click();
 
 
-        // Open and close sidebar
-        function w3_open() {
-            document.getElementById("mySidebar").style.display = "block";
-            document.getElementById("myOverlay").style.display = "block";
-        }
+            // Open and close sidebar
+            function w3_open() {
+                document.getElementById("mySidebar").style.display = "block";
+                document.getElementById("myOverlay").style.display = "block";
+            }
 
-        function w3_close() {
-            document.getElementById("mySidebar").style.display = "none";
-            document.getElementById("myOverlay").style.display = "none";
-        }
-    </script>
+            function w3_close() {
+                document.getElementById("mySidebar").style.display = "none";
+                document.getElementById("myOverlay").style.display = "none";
+            }
+        </script>
 
 </body>
 
