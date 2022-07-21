@@ -258,7 +258,7 @@ for i in incorrect[:6]:
 #in [21]
 # load model and predict some external photo
 
-labels = ["NORMAL", "NOT"]
+labels = ["NORMAL", "NOT Healthy"]
 def prepare(filepath):
     img_array = cv2.imread(filepath, cv2.IMREAD_GRAYSCALE)
     new_array = cv2.resize(img_array, (IMG_SIZE, IMG_SIZE))
