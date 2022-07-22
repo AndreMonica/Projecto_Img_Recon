@@ -114,7 +114,9 @@
             <a class="showSingle" target="Up" style="font-weight:bold" rel="noopener">Sign Up</a><br>
             <a class="showSingle" target="Report" style="font-weight:bold" rel="noopener">Reports</a><br>
             <a class="showSingle" target="Contact"style="font-weight:bold" rel="noopener">Contacts</a><br>
-            <a class="showSingle" target="6"  rel="noopener">div6</a><br>
+            <!-- default for script js interaction:
+                <a class="showSingle" target="6"  rel="noopener">div6</a><br> 
+            -->
         </div>
         <br>
     </nav>
@@ -162,30 +164,60 @@
         <!-- Home Area -->
         <div class="w3-container w3-text-grey targetDiv" id="divHome">
 
-            <img class="w3-right" src="./img/img_Template.JPG" style="max-height: 50%;" alt="Profile picture">
-            <p>Home<br>Home<br>Home<br>Home<br>Home<br>Home<br></p>
+            <img class="w3-right" src="./img/gabinete7_1andar.jpg" style="background-repeat: no-repeat; background-image: url(); background-size: cover; background-position: center center; width: 100%; opacity: 1; visibility: inherit; " alt="background picture">
+           
+            <div style="background-color: rgba(255, 255, 255, 0.56); text-align: inherit; line-height: 22px; font-weight: 400; font-size: 14px; white-space: pre;  min-height: 120px; min-width: 50px; max-height: 297px; max-width: 589px; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px; margin-top: 70px;"> 
+                <div  style="z-index: 7; white-space: nowrap; font-size: 15px; line-height: 21px; font-weight: 400; color: rgb(42, 38, 39); font-family: Raleway; visibility: inherit; text-align: inherit; margin-left: 10px;  max-height: none; max-width: none; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px;">
+                    <h1>Quem somos?</h1>
+                    <p style="margin-left: 20px;">
+                        Estamos em Lisboa, com dois espaços abertos ao público de segunda-feira a sábado. <br>
+                        Entre em contacto connosco para analisarmos o seu problema <br>
+                        e escolher o tratamento mais adequado.<br>
+                        Abertos das 8h - 21h</p>
+                </div>
+            </div>
             <!-- AKA "Home page "-->
             <br><br>
         </div>
 
-        <!-- Image Processing Area -->
-        <div class="w3-container w3-text-grey w3-grey targetDiv" id="divReport" hidden>
+        <!-- Reports >> Image Processing Area -->
+        <div class="w3-container w3-text-grey w3-grey targetDiv"  id="divReport" hidden>
             <br>
-            <p class="w3-green w3-center" style="font-size: 10"> Sucess message, Image uploaded!</p>
+            <p class="w3-green w3-center" style="font-size: 10; color: white;"> Sucess message, Image uploaded!</p>
             <!-- add/remove hideen proprety as .js -->
             <div class="form_submit">
-                <h2>Submit your image here for processing</h2>
+                <h2 style="color: white;">Submit your image here for processing</h2>
                 <img src="img/img_Template.JPG" alt="profile-icon" style="max-width: 50%;">
                 <!-- Have to make it change to image submited once server can accept it-->
 
                 <form action="/action_page.php">
                     <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT! server side -->
-                    <label for="img">Select image:</label>
+                    <label for="img" style="color: white;">Select image:</label>
                     <br>
-                    <input type="file" id="img" name="img" accept="image/*">
+                    <input type="file" id="img" name="img" accept="image/*" style="color: white;">
                     <br>
-                    <input type="submit">
+                    <a class="showSingle" target="Result"  rel="noopener" style="background-color: red; border-radius: 10px; color: white; padding: 5px;">Submit</a><br>
                 </form>
+                <br><br>
+            </div>
+        </div>
+        <div class="w3-container w3-row w3-grey targetDiv" id="divResult" hidden>
+            <h1 style="color: white;">Results</h1>
+            <div class="w3-container w3-half" style="color: white;">
+                <p> Accuracy: 66% - 75%</p>
+                <p> Falta de Dentes: 100%</p>
+                <p> Dentes Partidos: 0%</p>
+                <p> Dentes Escurecidos: 10%</p>
+                <p> Caries: 80%</p>
+                <p> Dentes Tortos: 32%</p>
+                <br><br>
+                <h2>Diagnostico:</h2>
+                <p>Recomenda-se a visita ao Dentista para um checkup dentario.</p>
+                <p>Contacto-nos assim que possivel para agendar a sua consulta!</p>
+            </div>
+            <div class="w3-half w3-container" style="margin-bottom: 25px; color: white;">
+                <h3>Image Results:</h3>
+                <img src="img/resultsFAKE.png" alt="profile-icon" style="max-width: 100%;">
                 <br><br>
             </div>
         </div>
