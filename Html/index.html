@@ -74,8 +74,8 @@
                 width: 100%;
             }
         }
-        
-        #display-image {
+
+        #display-image{
             width: 400px;
             height: 225px;
             border: 1px solid black;
@@ -96,7 +96,63 @@
             });
         });
     </script>
-    <script type="text/javascript">
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+    </script>
+
+
+    <script type="text/javascript" src="../static/index.js">
+        window.onload = () => {
+        $('#sendbutton').click(() => {
+        imagebox = $('#imagebox')
+        input = $('#imageinput')[0]
+        if(input.files && input.files[0])
+        {
+            let formData = new FormData();
+            formData.append('image' , input.files[0]);
+            $.ajax({
+                url: "http://localhost:5000/maskimage", // fix this to your liking
+                type:"POST",
+                data: formData,
+                cache: false,
+                processData:false,
+                contentType:false,
+                error: function(data){
+                    console.log("upload error" , data);
+                    console.log(data.getAllResponseHeaders());
+                },
+                success: function(data){
+                    // alert("hello"); // if it's failing on actual server check your server FIREWALL + SET UP CORS
+                    bytestring = data['status']
+                    image = bytestring.split('\'')[1]
+                    imagebox.attr('src' , 'data:image/jpeg;base64,'+image)
+                }
+            });
+        }
+        });
+        };
+
+
+
+        function readUrl(input){
+        imagebox = $('#imagebox')
+        console.log("evoked readUrl")
+        if(input.files && input.files[0]){
+        let reader = new FileReader();
+        reader.onload = function(e){
+            // console.log(e)
+            
+            imagebox.attr('src',e.target.result); 
+            imagebox.height(300);
+            imagebox.width(300);
+        }
+        reader.readAsDataURL(input.files[0]);
+        }
+
+
+        }
     </script>
 </head>
 
@@ -123,7 +179,7 @@
             <a class="showSingle" target="In" style="font-weight:bold" rel="noopener">Sign In</a><br>
             <a class="showSingle" target="Up" style="font-weight:bold" rel="noopener">Sign Up</a><br>
             <a class="showSingle" target="Report" style="font-weight:bold" rel="noopener">Reports</a><br>
-            <a class="showSingle" target="Contact" style="font-weight:bold" rel="noopener">Contacts</a><br>
+            <a class="showSingle" target="Contact"style="font-weight:bold" rel="noopener">Contacts</a><br>
             <!-- default for script js interaction:
                 <a class="showSingle" target="6"  rel="noopener">div6</a><br> 
             -->
@@ -147,7 +203,7 @@
         <div class="w3-hide-large" style="margin-top:83px"></div>
 
         <!-- Top header -->
-        <header class="w3-container w3-xlarge" id="div5">
+        <header class="w3-container w3-xlarge" id="div5" >
             <p class="w3-left" style="margin-top: 50px;">Dentista</p>
             <p class="w3-right" style="margin-top: 50px;">
                 <i class="fa fa-search"></i>
@@ -175,12 +231,15 @@
         <div class="w3-container w3-text-grey targetDiv" id="divHome">
 
             <img class="w3-right" src="./img/gabinete7_1andar.jpg" style="background-repeat: no-repeat; background-image: url(); background-size: cover; background-position: center center; width: 100%; opacity: 1; visibility: inherit; " alt="background picture">
-
-            <div style="background-color: rgba(255, 255, 255, 0.56); text-align: inherit; line-height: 22px; font-weight: 400; font-size: 14px; white-space: pre;  min-height: 120px; min-width: 50px; max-height: 297px; max-width: 589px; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px; margin-top: 70px;">
-                <div style="z-index: 7; white-space: nowrap; font-size: 15px; line-height: 21px; font-weight: 400; color: rgb(42, 38, 39); font-family: Raleway; visibility: inherit; text-align: inherit; margin-left: 10px;  max-height: none; max-width: none; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px;">
+           
+            <div style="background-color: rgba(255, 255, 255, 0.56); text-align: inherit; line-height: 22px; font-weight: 400; font-size: 14px; white-space: pre;  min-height: 120px; min-width: 50px; max-height: 297px; max-width: 589px; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px; margin-top: 70px;"> 
+                <div  style="z-index: 7; white-space: nowrap; font-size: 15px; line-height: 21px; font-weight: 400; color: rgb(42, 38, 39); font-family: Raleway; visibility: inherit; text-align: inherit; margin-left: 10px;  max-height: none; max-width: none; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px;">
                     <h1>Quem somos?</h1>
                     <p style="margin-left: 20px;">
-                        Estamos em Lisboa, com dois espaços abertos ao público de segunda-feira a sábado. <br> Entre em contacto connosco para analisarmos o seu problema <br> e escolher o tratamento mais adequado.<br> Abertos das 8h - 21h</p>
+                        Estamos em Lisboa, com dois espaços abertos ao público de segunda-feira a sábado. <br>
+                        Entre em contacto connosco para analisarmos o seu problema <br>
+                        e escolher o tratamento mais adequado.<br>
+                        Abertos das 8h - 21h</p>
                 </div>
             </div>
             <!-- AKA "Home page "-->
@@ -188,7 +247,7 @@
         </div>
 
         <!-- Reports >> Image Processing Area -->
-        <div class="w3-container w3-text-grey w3-grey targetDiv" id="divReport" hidden>
+        <div class="w3-container w3-text-grey w3-grey targetDiv"  id="divReport" hidden>
             <br>
             <p class="w3-green w3-center" style="font-size: 10; color: white;"> Sucess message, Image uploaded!</p>
             <!-- add/remove hideen proprety as .js -->
@@ -201,20 +260,11 @@
                     <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT! server side -->
                     <label for="img" style="color: white;">Select image:</label>
                     <br>
-                    <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg">
-                    <br>
-<<<<<<< HEAD
-                    <<<<<<< HEAD <a class="showSingle" target="Result" rel="noopener" style="background-color: red; border-radius: 10px; color: white; padding: 5px;">Submit</a><br> =======
-                        <input type="submit">
-                        <a class="showSingle" target="Result" rel="noopener" style="background-color: red; border-radius: 10px; color: white; padding: 5px;">Submit</a><br> >>>>>>> 08198ededd285b00c789a38f3c8f8e6979a8d5eb
-=======
-<<<<<<< HEAD
-                    <a class="showSingle" target="Result" rel="noopener" style="background-color: red; border-radius: 10px; color: white; padding: 5px;">Submit</a><br>
-=======
-                    <input type="submit">
+                    <input id="imageinput" type="file" name="image" onchange="readUrl(this)">
+                    <button name="send" id = "sendbutton">Send</button>
+                    <hr>
+                    <img id="imagebox" src="">
                     <a class="showSingle" target="Result"  rel="noopener" style="background-color: red; border-radius: 10px; color: white; padding: 5px;">Submit</a><br>
->>>>>>> 08198ededd285b00c789a38f3c8f8e6979a8d5eb
->>>>>>> ed9de78e8e0d1820498d3856c71f0706084fd09e
                 </form>
                 <br><br>
             </div>
@@ -249,92 +299,78 @@
                 <p>Hi there! Nice to see you again.</p>
                 <form action="/action_page.php" target="_blank">
                     <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT! server side-->
-                    <p>
-<<<<<<< HEAD
-                        <input class="w3-input w3-border " style="color:black " type=" text " placeholder="Email " name="Email " required></p>
-                    <p>
-                        <input class="w3-input w3-border " type="password " placeholder="Password " name="pwd " id="pwd " required></p>
-=======
-                        <input class="w3-input w3-border" style="color:black" type=" text " placeholder="Email " name="Email " required></p>
-                    <p><input class="w3-input w3-border " type="password " placeholder="Password " name="pwd " id="pwd " required></p>
->>>>>>> ed9de78e8e0d1820498d3856c71f0706084fd09e
-                    <div class=" ">
-                        <a href=" "><button type="submit " class="w3-button w3-block w3-red ">Sign In</button></a>
+                    <p><input class="w3-input w3-border" type="text" placeholder="Email" name="Email" required></p>
+                    <p><input class="w3-input w3-border" type="password" placeholder="Password" name="pwd" id="pwd" required></p>
+                    <div class="">
+                        <a href=""><button type="submit" class="w3-button w3-block w3-red">Sign In</button></a>
                     </div>
                 </form>
-                <a href=" "><button type="submit " class="w3-button w3-block w3-black ">Sign Up</button></a>
-                <a href=" "><button class="w3-button w3-block w3-black ">Forgot Password?</button></a>
+                <a href=""><button type="submit" class="w3-button w3-block w3-black">Sign Up</button></a>
+                <a href=""><button class="w3-button w3-block w3-black">Forgot Password?</button></a>
             </div>
         </div>
 
         <!-- Sign-Up  -->
-        <div class="w3-container w3-row w3-black w3-center targetDiv " id="divUp " hidden>
-            <div class="w3-col w3-center w3-container ">
+        <div class="w3-container w3-row w3-black w3-center targetDiv" id="divUp" hidden>
+            <div class="w3-col w3-center w3-container">
                 <h4>Sign Up</h4>
                 <p>Enter your details to Sign Up!</p>
-                <form action="/action_page.php " target="_blank ">
+                <form action="/action_page.php" target="_blank">
                     <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT!  server side-->
-<<<<<<< HEAD
-                    <p>
-                        <input class="w3-input w3-border " style="color:black " type="text " placeholder="Email " name="Email " required></p>
-                    <p>
-                        <input class="w3-input w3-border " type="password " placeholder="Password " name="pwd " id="pwd " required></p>
-=======
-                    <p><input class="w3-input w3-border " style="color:black" type="text " placeholder="Email " name="Email " required></p>
-                    <p><input class="w3-input w3-border " type="password " placeholder="Password " name="pwd " id="pwd " required></p>
->>>>>>> ed9de78e8e0d1820498d3856c71f0706084fd09e
-                    <input type="checkbox " id="terms " name="terms " value="Terms_Accepted " required>
-                    <label for="terms " required> I agree to the Terms of Services and Privacy Policy</label><br>
-                    <a href=" "><button type="submit " class="w3-button w3-block w3-red ">Continue</button></a>
+                    <p><input class="w3-input w3-border" type="text" placeholder="Email" name="Email" required></p>
+                    <p><input class="w3-input w3-border" type="password" placeholder="Password" name="pwd" id="pwd" required></p>
+                    <input type="checkbox" id="terms" name="terms" value="Terms_Accepted" required>
+                    <label for="terms" required> I agree to the Terms of Services and Privacy Policy</label><br>
+                    <a href=""><button type="submit" class="w3-button w3-block w3-red">Continue</button></a>
                 </form>
-                <p style="text-align: center; ">Have an Account? <a href=" ">Sign In</a></p>
+                <p style="text-align: center;">Have an Account? <a href="">Sign In</a></p>
             </div>
         </div>
 
 
 
-        <div class="w3-padding-64 w3-light-grey w3-small w3-center targetDiv " id="divContact " hidden>
-            <div class="w3-row-padding ">
-                <div class="w3-col s4 ">
+        <div class="w3-padding-64 w3-light-grey w3-small w3-center targetDiv" id="divContact" hidden>
+            <div class="w3-row-padding">
+                <div class="w3-col s4">
                     <h4>Contact</h4>
                     <p>Questions? Go ahead.</p>
-                    <form action="/action_page.php " target="_blank ">
+                    <form action="/action_page.php" target="_blank">
                         <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT!  server side-->
-                        <p><input class="w3-input w3-border " type="text " placeholder="Name " name="Name " required></p>
-                        <p><input class="w3-input w3-border " type="text " placeholder="Email " name="Email " required></p>
-                        <p><input class="w3-input w3-border " type="text " placeholder="Subject " name="Subject " required></p>
-                        <p><input class="w3-input w3-border " type="text " placeholder="Message " name="Message " required></p>
-                        <button type="submit " class="w3-button w3-block w3-black ">Send</button>
+                        <p><input class="w3-input w3-border" type="text" placeholder="Name" name="Name" required></p>
+                        <p><input class="w3-input w3-border" type="text" placeholder="Email" name="Email" required></p>
+                        <p><input class="w3-input w3-border" type="text" placeholder="Subject" name="Subject" required></p>
+                        <p><input class="w3-input w3-border" type="text" placeholder="Message" name="Message" required></p>
+                        <button type="submit" class="w3-button w3-block w3-black">Send</button>
                     </form>
                 </div>
 
-                <div class="w3-col s4 ">
+                <div class="w3-col s4">
                     <h4>About</h4>
-                    <p><a href="# ">About us</a></p>
-                    <p><a href="# ">We're hiring</a></p>
-                    <p><a href="# ">Support</a></p>
-                    <p><a href="# ">Find store</a></p>
-                    <p><a href="# ">Shipment</a></p>
-                    <p><a href="# ">Payment</a></p>
-                    <p><a href="# ">Gift card</a></p>
-                    <p><a href="# ">Help</a></p>
+                    <p><a href="#">About us</a></p>
+                    <p><a href="#">We're hiring</a></p>
+                    <p><a href="#">Support</a></p>
+                    <p><a href="#">Find store</a></p>
+                    <p><a href="#">Shipment</a></p>
+                    <p><a href="#">Payment</a></p>
+                    <p><a href="#">Gift card</a></p>
+                    <p><a href="#">Help</a></p>
                 </div>
 
-                <div class="w3-col s4 w3-justify ">
+                <div class="w3-col s4 w3-justify">
                     <h4>Dentista</h4>
-                    <p><i class="fa fa-fw fa-map-marker "></i> Company Name</p>
-                    <p><i class="fa fa-fw fa-phone "></i> 2100000000</p>
-                    <p><i class="fa fa-fw fa-envelope "></i> company@mail.com</p>
+                    <p><i class="fa fa-fw fa-map-marker"></i> Company Name</p>
+                    <p><i class="fa fa-fw fa-phone"></i> 2100000000</p>
+                    <p><i class="fa fa-fw fa-envelope"></i> company@mail.com</p>
                     <h4>We accept</h4>
-                    <p><i class="fa fa-fw fa-cc-amex "></i> Paypal </p>
-                    <p><i class="fa fa-fw fa-credit-card "></i> Credit Card</p>
+                    <p><i class="fa fa-fw fa-cc-amex"></i> Paypal </p>
+                    <p><i class="fa fa-fw fa-credit-card"></i> Credit Card</p>
                     <br>
-                    <i class="fa fa-facebook-official w3-hover-opacity w3-large "></i>
-                    <i class="fa fa-instagram w3-hover-opacity w3-large "></i>
-                    <i class="fa fa-snapchat w3-hover-opacity w3-large "></i>
-                    <i class="fa fa-pinterest-p w3-hover-opacity w3-large "></i>
-                    <i class="fa fa-twitter w3-hover-opacity w3-large "></i>
-                    <i class="fa fa-linkedin w3-hover-opacity w3-large "></i>
+                    <i class="fa fa-facebook-official w3-hover-opacity w3-large"></i>
+                    <i class="fa fa-instagram w3-hover-opacity w3-large"></i>
+                    <i class="fa fa-snapchat w3-hover-opacity w3-large"></i>
+                    <i class="fa fa-pinterest-p w3-hover-opacity w3-large"></i>
+                    <i class="fa fa-twitter w3-hover-opacity w3-large"></i>
+                    <i class="fa fa-linkedin w3-hover-opacity w3-large"></i>
                 </div>
             </div>
         </div>
@@ -342,20 +378,20 @@
 
         <!-- Footer -->
         <footer>
-            <div class="w3-black w3-padding-24 w3-center ">Trabalho feito por Ana Maria, Andre Monica</div>
+            <div class="w3-black w3-padding-24 w3-center">Trabalho feito por Ana Maria, Andre Monica</div>
         </footer>
         <!-- End page content -->
 
 
         <!-- Newsletter Modal -->
-        <div id="newsletter " class="w3-modal ">
-            <div class="w3-modal-content w3-animate-zoom " style="padding:32px ">
-                <div class="w3-container w3-white w3-center ">
-                    <i onclick="document.getElementById( 'newsletter').style.display='none' " class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge "></i>
-                    <h2 class="w3-wide ">NEWSLETTER</h2>
+        <div id="newsletter" class="w3-modal">
+            <div class="w3-modal-content w3-animate-zoom" style="padding:32px">
+                <div class="w3-container w3-white w3-center">
+                    <i onclick="document.getElementById('newsletter').style.display='none'" class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"></i>
+                    <h2 class="w3-wide">NEWSLETTER</h2>
                     <p>Join our mailing list to receive updates on new arrivals and special offers.</p>
-                    <p><input class="w3-input w3-border " type="text " placeholder="Enter e-mail "></p>
-                    <button type="button " class="w3-button w3-padding-large w3-red w3-margin-bottom " onclick="document.getElementById( 'newsletter').style.display='none' ">Subscribe</button>
+                    <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail"></p>
+                    <button type="button" class="w3-button w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('newsletter').style.display='none'">Subscribe</button>
                 </div>
             </div>
         </div>
@@ -363,27 +399,27 @@
         <script>
             // Accordion 
             function myAccFunc() {
-                var x = document.getElementById("demoAcc ");
-                if (x.className.indexOf("w3-show ") == -1) {
-                    x.className += " w3-show ";
+                var x = document.getElementById("demoAcc");
+                if (x.className.indexOf("w3-show") == -1) {
+                    x.className += " w3-show";
                 } else {
-                    x.className = x.className.replace(" w3-show ", " ");
+                    x.className = x.className.replace(" w3-show", "");
                 }
             }
 
-            // Click on the "Jeans " link on page load to open the accordion for demo purposes
-            document.getElementById("myBtn ").click();
+            // Click on the "Jeans" link on page load to open the accordion for demo purposes
+            document.getElementById("myBtn").click();
 
 
             // Open and close sidebar
             function w3_open() {
-                document.getElementById("mySidebar ").style.display = "block ";
-                document.getElementById("myOverlay ").style.display = "block ";
+                document.getElementById("mySidebar").style.display = "block";
+                document.getElementById("myOverlay").style.display = "block";
             }
 
             function w3_close() {
-                document.getElementById("mySidebar ").style.display = "none ";
-                document.getElementById("myOverlay ").style.display = "none ";
+                document.getElementById("mySidebar").style.display = "none";
+                document.getElementById("myOverlay").style.display = "none";
             }
         </script>
 
