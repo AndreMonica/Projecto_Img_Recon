@@ -30,11 +30,7 @@ def mask_image():
 	img_base64 = base64.b64encode(rawBytes.read())
 	return jsonify({'status':str(img_base64)})
 
-@app.route('/test' , methods=['GET','POST'])
-def test():
-    print("log: got at test" , file=sys.stderr)
-    Main.get_data_train('./img/teeth/test_set')
-    return jsonify({'status':'succces'})
+
 
 if __name__ == '__main__':
 	app.run(debug = True)
