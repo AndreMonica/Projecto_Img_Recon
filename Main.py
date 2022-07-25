@@ -20,6 +20,7 @@ no terminal coloquei->   pip install pandas       ->está a dar erro ao verifica
 # It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python
 # For example, here's several helpful packages to load
 
+from urllib import response
 import numpy as np                  # linear algebra
 import pandas as pd                 # data processing, CSV file I/O (e.g. pd.read_csv)
 import cv2                          # import cv2        >>> https://pypi.org/project/opencv-python/  || pip install opencv-python >> into CMD
@@ -283,3 +284,13 @@ print(labels[int(prediction[0])])
 #in [25] !!!!!!!!!!!!!!!!!!!!!! look into this
 prediction = model.predict([prepare("./img/protest/test_set/penyakit-periodontal/periodontal_4.png")])
 print(labels[int(prediction[0])])
+
+
+#API AREA
+#pip install Flask >>in CMD
+
+
+#from flask import Flask
+
+#prediction = model.predict([prepare("./img/imgsubmit")])
+#print(labels[int(prediction[0])])
