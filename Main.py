@@ -278,11 +278,11 @@ prediction = model.predict([prepare("./img/protest/test_set/penyakit-non-periodo
 print(labels[int(prediction[0])])
 
 #in [24] !!!!!!!!!!!!!!!!!!!!!! look into this
-prediction = model.predict([prepare("./img/protest/test_set/penyakit-periodontal/periodontal_1.png")])
+prediction = model.predict([prepare("./img/protest/test_set/penyakit-periodontal/periodontal_1.png")])  #healthy
 print(labels[int(prediction[0])])
 
 #in [25] !!!!!!!!!!!!!!!!!!!!!! look into this
-prediction = model.predict([prepare("./img/protest/test_set/penyakit-periodontal/periodontal_4.png")])
+prediction = model.predict([prepare("./img/protest/test_set/penyakit-periodontal/periodontal_4.png")]) #healthy
 print(labels[int(prediction[0])])
 
 
