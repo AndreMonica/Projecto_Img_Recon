@@ -74,6 +74,14 @@
                 width: 100%;
             }
         }
+        
+        #display-image {
+            width: 400px;
+            height: 225px;
+            border: 1px solid black;
+            background-position: center;
+            background-size: cover;
+        }
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -87,6 +95,8 @@
                 jQuery('#div' + $(this).attr('target')).show();
             });
         });
+    </script>
+    <script type="text/javascript">
     </script>
 </head>
 
@@ -187,13 +197,15 @@
                 <img src="img/img_Template.JPG" alt="profile-icon" style="max-width: 50%;">
                 <!-- Have to make it change to image submited once server can accept it-->
 
-                <form action="/action_page.php">
+                <form action="http://127.0.0.1:5000/maskImage">
                     <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT! server side -->
                     <label for="img" style="color: white;">Select image:</label>
                     <br>
-                    <input type="file" id="img" name="img" accept="image/*" style="color: white;">
+                    <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg">
                     <br>
-                    <a class="showSingle" target="Result" rel="noopener" style="background-color: red; border-radius: 10px; color: white; padding: 5px;">Submit</a><br>
+                    <<<<<<< HEAD <a class="showSingle" target="Result" rel="noopener" style="background-color: red; border-radius: 10px; color: white; padding: 5px;">Submit</a><br> =======
+                        <input type="submit">
+                        <a class="showSingle" target="Result" rel="noopener" style="background-color: red; border-radius: 10px; color: white; padding: 5px;">Submit</a><br> >>>>>>> 08198ededd285b00c789a38f3c8f8e6979a8d5eb
                 </form>
                 <br><br>
             </div>
@@ -212,9 +224,10 @@
                 <p>Recomenda-se a visita ao Dentista para um checkup dentario.</p>
                 <p>Contacto-nos assim que possivel para agendar a sua consulta!</p>
             </div>
-            <div class="w3-half w3-container" style="margin-bottom: 25px; color: white;">
+            <div class="w3-half w3-container" style="margin-bottom: 25px; color: white;" id="image_input">
                 <h3>Image Results:</h3>
-                <img src="img/resultsFAKE.png" alt="profile-icon" style="max-width: 100%;">
+                <!--<img src="img/resultsFAKE.png" alt="profile-icon" style="max-width: 100%;"> -->
+                <div id="display-image"></div>
                 <br><br>
             </div>
         </div>
@@ -228,8 +241,9 @@
                 <form action="/action_page.php" target="_blank">
                     <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT! server side-->
                     <p>
-                        <input class="w3-input w3-border" style="color:black" type=" text " placeholder="Email " name="Email " required></p>
-                    <p><input class="w3-input w3-border " type="password " placeholder="Password " name="pwd " id="pwd " required></p>
+                        <input class="w3-input w3-border " style="color:black " type=" text " placeholder="Email " name="Email " required></p>
+                    <p>
+                        <input class="w3-input w3-border " type="password " placeholder="Password " name="pwd " id="pwd " required></p>
                     <div class=" ">
                         <a href=" "><button type="submit " class="w3-button w3-block w3-red ">Sign In</button></a>
                     </div>
@@ -246,8 +260,10 @@
                 <p>Enter your details to Sign Up!</p>
                 <form action="/action_page.php " target="_blank ">
                     <!-- @AndreMonica && @anamm8 NEED TO IMPLEMENT!  server side-->
-                    <p><input class="w3-input w3-border " style="color:black" type="text " placeholder="Email " name="Email " required></p>
-                    <p><input class="w3-input w3-border " type="password " placeholder="Password " name="pwd " id="pwd " required></p>
+                    <p>
+                        <input class="w3-input w3-border " style="color:black " type="text " placeholder="Email " name="Email " required></p>
+                    <p>
+                        <input class="w3-input w3-border " type="password " placeholder="Password " name="pwd " id="pwd " required></p>
                     <input type="checkbox " id="terms " name="terms " value="Terms_Accepted " required>
                     <label for="terms " required> I agree to the Terms of Services and Privacy Policy</label><br>
                     <a href=" "><button type="submit " class="w3-button w3-block w3-red ">Continue</button></a>
