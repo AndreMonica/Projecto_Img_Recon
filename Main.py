@@ -294,3 +294,5 @@ print(labels[int(prediction[0])])
 
 #prediction = model.predict([prepare("./img/imgsubmit")])
 #print(labels[int(prediction[0])])
+
+
